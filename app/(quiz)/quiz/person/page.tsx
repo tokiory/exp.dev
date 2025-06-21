@@ -8,7 +8,7 @@ import {
   Input,
   Text,
 } from "@/components/ui";
-import { Heading } from "@/components/quiz/heading";
+import { QuizHeading } from "@/components/quiz/quiz-heading";
 import { Quiz } from "@/components/quiz/quiz";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -65,7 +65,7 @@ export default function QuizPersonPage() {
   return (
     <Form {...form}>
       <Quiz onSubmit={form.handleSubmit(handleSubmit)}>
-        <Heading>Личные данные</Heading>
+        <QuizHeading>Личные данные</QuizHeading>
         <Text className="mt-2">
           Пожалуйста, введите следующие данные для того чтобы правильно
           сформировать таблицу компетенций. Данные, которые вы введете не будут

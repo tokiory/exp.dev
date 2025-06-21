@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Label, Text } from "@/components/ui";
-import { Heading } from "@/components/quiz/heading";
+import { QuizHeading } from "@/components/quiz/quiz-heading";
 import { Quiz } from "@/components/quiz/quiz";
 import { RangeStep } from "@/components/ui/range-step";
 import { useEffect, useState } from "react";
@@ -39,7 +39,7 @@ export default function QuizSkills() {
 
   return (
     <Quiz onSubmit={handleSubmit}>
-      <Heading>Навыки</Heading>
+      <QuizHeading>Навыки</QuizHeading>
       <Text className="mt-2">
         На данном этапе вам необходимо выбрать технологии, навыки и компетенции,
         которыми вы владеете.

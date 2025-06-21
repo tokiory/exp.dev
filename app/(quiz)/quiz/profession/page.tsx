@@ -1,5 +1,5 @@
 "use client";
-import { Heading } from "@/components/quiz/heading";
+import { QuizHeading } from "@/components/quiz/quiz-heading";
 import {
   Text,
   Select,
@@ -75,7 +75,7 @@ export default function QuizProfession() {
   return (
     <Form {...form}>
       <Quiz onSubmit={form.handleSubmit(handleSubmit)}>
-        <Heading>Профессия</Heading>
+        <QuizHeading>Профессия</QuizHeading>
         <Text className="mt-2">
           Теперь немного поговорим о вашей профессии. В данной форме необходимо
           заполнить все актуальные данные, <br /> согласно вашему опыту и

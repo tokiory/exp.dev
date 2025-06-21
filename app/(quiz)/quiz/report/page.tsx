@@ -1,5 +1,5 @@
 "use client";
-import { Heading } from "@/components/quiz/heading";
+import { QuizHeading } from "@/components/quiz/quiz-heading";
 import { QuizReportField } from "@/components/quiz/quiz-report-field";
 import { QuizSubheading } from "@/components/quiz/quiz-subheading";
 import { useQuizContext } from "@/contexts/quiz";
@@ -15,7 +15,7 @@ export default function ReportPage() {
   console.log(skills);
   return (
     <div>
-      <Heading>Отчёт</Heading>
+      <QuizHeading>Отчёт</QuizHeading>
       <div className="flex flex-col gap-2 mt-4">
         <QuizReportField
           icon="tabler:user"

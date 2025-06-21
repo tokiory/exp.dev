@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC, PropsWithChildren } from "react";
 
-export const Heading: FC<PropsWithChildren<{ className?: string }>> = ({
+export const QuizHeading: FC<PropsWithChildren<{ className?: string }>> = ({
   children,
   className,
 }) => {
