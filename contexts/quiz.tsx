@@ -57,7 +57,7 @@ export const QuizProvider: FC<PropsWithChildren> = ({ children }) => {
         ? JSON.stringify(state(work))
         : JSON.stringify(state),
     );
-    setWork(work);
+    setWork(state);
   };
 
   const savePersonal: Dispatch<SetStateAction<Personal>> = (state) => {
@@ -67,7 +67,7 @@ export const QuizProvider: FC<PropsWithChildren> = ({ children }) => {
         ? JSON.stringify(state(personal))
         : JSON.stringify(state),
     );
-    setPersonal(personal);
+    setPersonal(state);
   };
 
   const saveSkills = (state: Record<string, number>) => {

@@ -1,3 +1,4 @@
+"use client";
 import { useQuizContext } from "@/contexts/quiz";
 import clsx from "clsx";
 import { FC } from "react";
@@ -19,11 +20,18 @@ export const QuizStep: FC<Props> = ({ total, className }) => {
   };
 
   return (
-    <div className={clsx("flex w-full justify-center gap-4 select-none", className)}>
+    <div
+      className={clsx(
+        "flex w-full justify-center gap-4 select-none",
+        className,
+      )}
+    >
       {Array.from({ length: total }, (_, i) => (
         <div
           onClick={() => handleNavigate(i)}
-          className="p-2 cursor-pointer w-full" key={i}>
+          className="p-2 cursor-pointer w-full"
+          key={i}
+        >
           <div
             className={`w-full rounded-md h-1.5 ${i <= step ? "bg-orange-600" : "bg-stone-200"}`}
           />

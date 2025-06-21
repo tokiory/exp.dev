@@ -1,4 +1,3 @@
-"use client";
 import { QuizStep } from "@/components/quiz/quiz-navigation";
 import { QuizProvider } from "@/contexts/quiz";
 import { Icon } from "@iconify/react";
