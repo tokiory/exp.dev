@@ -18,9 +18,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
 import { QUIZ_PAGES } from "@/data/quiz";
+import { QuizCacheBanner } from "@/components/quiz/quiz-cache-banner";
 
 export default function QuizPersonPage() {
-  const { setStep, step, personal, setPersonal } = useQuizContext();
+  const { setStep, cachedFields, step, personal, setPersonal } =
+    useQuizContext();
   const router = useRouter();
 
   useEffect(() => {
@@ -71,6 +73,7 @@ export default function QuizPersonPage() {
           сформировать таблицу компетенций. Данные, которые вы введете не будут
           сохранены и/или переданы куда-либо.
         </Text>
+        {cachedFields.work && <QuizCacheBanner className="mt-2" />}
         <div className="flex flex-col mt-4">
           <div className="font-semibold text-sm">Общие данные</div>
           <div className="grid grid-cols-3 gap-2 mt-2">
@@ -140,7 +143,7 @@ export default function QuizPersonPage() {
           </div>
         </div>
         <div className="flex justify-between mt-4 items-center">
-          <Button onClick={handleQuit} variant="secondary">
+          <Button type="button" onClick={handleQuit} variant="secondary">
             Назад
           </Button>
           <Button type="submit">Продолжить</Button>

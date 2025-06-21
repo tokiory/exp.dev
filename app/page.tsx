@@ -9,7 +9,7 @@ export default function Home() {
       <div className="flex flex-col grow justify-center items-center">
         <Icon className="text-6xl" icon="fluent-emoji:sparkles" />
         <Heading className="mt-2">exp.dev</Heading>
-        <Text className="mt-1">Сервис для корректировки опыта сотрудников</Text>
+        <Text className="mt-1">Сервис для оценки компетенций сотрудников</Text>
         <NextLink href="/quiz/person" className="mt-4">
           <Button className="mt-4">Начать</Button>
         </NextLink>

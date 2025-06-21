@@ -10,31 +10,39 @@ import { Icon } from "@iconify/react";
 import { useRouter } from "next/navigation";
 import { useQuizContext } from "@/contexts/quiz";
 import { QUIZ_PAGES } from "@/data/quiz";
+import { QuizCacheBanner } from "@/components/quiz/quiz-cache-banner";
 
 export default function QuizSkills() {
   const router = useRouter();
-  const { step } = useQuizContext();
+  const {
+    step,
+    setStep,
+    setSkills: saveSkills,
+    skills: initialSkills,
+    cachedFields,
+  } = useQuizContext();
+
+  const [skills, setSkills] = useState<Record<string, number>>(initialSkills);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    saveSkills(skills);
     event.preventDefault();
     router.push(QUIZ_PAGES[step + 1]);
   };
-
-  const { setStep } = useQuizContext();
 
   useEffect(() => {
     setStep(() => 2);
   }, [setStep]);
 
-  const [skills, setSkills] = useState<Record<string, number>>({});
-
   const handleChangeSkill = (skill: string, value: number) => {
-    console.log(skills, skill, value);
-    setSkills((prevSkills) => ({ ...prevSkills, [skill]: value }));
+    setSkills((prevSkills) => ({
+      ...prevSkills,
+      [skill]: value,
+    }));
   };
 
   const handleBack = () => {
-    router.push(QUIZ_PAGES[step - 1]);
+    router.push("/quiz/profession");
   };
 
   return (
@@ -55,6 +63,8 @@ export default function QuizSkills() {
       <Text>
         Пятый уровень говорит о совершенном владении технологией или навыком.
       </Text>
+
+      {cachedFields.work && <QuizCacheBanner className="mt-2" />}
 
       <div className="flex flex-col mt-4 gap-4">
         {FRONTEND_SKILL_CATEGORIES.map((category) => (
@@ -79,7 +89,7 @@ export default function QuizSkills() {
         ))}
       </div>
       <div className="flex mt-4 justify-between items-center">
-        <Button onClick={handleBack} variant="secondary">
+        <Button type="button" onClick={handleBack} variant="secondary">
           Назад
         </Button>
         <Button type="submit">Продолжить</Button>

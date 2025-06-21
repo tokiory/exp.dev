@@ -22,13 +22,14 @@ import { QUIZ_PAGES } from "@/data/quiz";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
+import { QuizCacheBanner } from "@/components/quiz/quiz-cache-banner";
 
 export default function QuizProfession() {
   const router = useRouter();
-  const { setStep, step, work, setWork } = useQuizContext();
+  const { setStep, step, work, setWork, cachedFields } = useQuizContext();
 
   const handlePrevious = () => {
-    router.push(QUIZ_PAGES[step - 1]);
+    router.push("/quiz/person");
   };
 
   useEffect(() => {
@@ -81,8 +82,10 @@ export default function QuizProfession() {
           заполнить все актуальные данные, <br /> согласно вашему опыту и
           знаниям.
         </Text>
+        {cachedFields.work && <QuizCacheBanner className="mt-2" />}
 
-        <div className="flex flex-col mt-4">
+        <Label className="mt-4">Профессия и грейд</Label>
+        <div className="flex flex-col mt-2">
           <div className="grid gap-4 grid-cols-3">
             <FormField
               control={form.control}
@@ -146,7 +149,7 @@ export default function QuizProfession() {
           />
         </div>
         <div className="flex justify-between mt-4 items-center">
-          <Button onClick={handlePrevious} variant="secondary">
+          <Button type="button" onClick={handlePrevious} variant="secondary">
             Назад
           </Button>
           <Button type="submit">Продолжить</Button>

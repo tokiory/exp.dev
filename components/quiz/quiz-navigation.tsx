@@ -19,13 +19,15 @@ export const QuizStep: FC<Props> = ({ total, className }) => {
   };
 
   return (
-    <div className={clsx("flex gap-4 select-none", className)}>
+    <div className={clsx("flex w-full justify-center gap-4 select-none", className)}>
       {Array.from({ length: total }, (_, i) => (
         <div
-          key={i}
           onClick={() => handleNavigate(i)}
-          className={`w-20 rounded-md h-1.5 ${i <= step ? "bg-stone-900" : "bg-stone-200"}`}
-        ></div>
+          className="p-2 cursor-pointer w-full" key={i}>
+          <div
+            className={`w-full rounded-md h-1.5 ${i <= step ? "bg-orange-600" : "bg-stone-200"}`}
+          />
+        </div>
       ))}
     </div>
   );

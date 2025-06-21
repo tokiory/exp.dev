@@ -1,9 +1,11 @@
 import clsx from "clsx";
 import * as React from "react";
+import { FC } from "react";
 
 type RangeStepProps = {
   value: number;
   className?: string;
+  readonly?: boolean;
   onChange?: (val: number) => void;
   id?: string;
   min?: number;
@@ -11,8 +13,42 @@ type RangeStepProps = {
   step?: number;
 };
 
+export const RangeStepUncontrolled: FC<
+  Omit<RangeStepProps, "value"> & { defaultValue?: number }
+> = ({
+  defaultValue,
+  readonly,
+  onChange,
+  className,
+  id,
+  min = 0,
+  max = 5,
+  step = 1,
+}) => {
+  const [localValue, setLocalValue] = React.useState(defaultValue || min);
+
+  const handleChange = (val: number) => {
+    setLocalValue(val);
+    onChange?.(val);
+  };
+
+  return (
+    <RangeStep
+      value={localValue}
+      onChange={handleChange}
+      readonly={readonly}
+      className={className}
+      id={id}
+      min={min}
+      max={max}
+      step={step}
+    />
+  );
+};
+
 export const RangeStep: React.FC<RangeStepProps> = ({
   value,
+  readonly,
   onChange,
   className,
   id,
@@ -26,7 +62,7 @@ export const RangeStep: React.FC<RangeStepProps> = ({
   return (
     <div className={clsx("w-full h-fit relative select-none", className)}>
       <RangeTrack percentage={percentage} steps={steps} />
-      <RangeThumb percentage={percentage} />
+      {!readonly && <RangeThumb percentage={percentage} />}
       <RangeInput
         min={min}
         max={max}
@@ -47,7 +83,7 @@ type RangeTrackProps = {
 const RangeTrack: React.FC<RangeTrackProps> = ({ percentage, steps }) => (
   <div className="relative h-2 rounded-full overflow-hidden bg-muted">
     <div
-      className="absolute top-0 left-0 h-full z-10 bg-gradient-to-r from-primary/40 to-primary transition-all duration-150"
+      className="absolute top-0 left-0 rounded-full h-full z-10 bg-gradient-to-r from-orange-600/40 to-orange-600 transition-all duration-150"
       style={{ width: `${percentage}%` }}
     />
 

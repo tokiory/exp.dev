@@ -1,3 +1,8 @@
+export const getProfessionLabel = (value: string) => {
+  const profession = PROFESSIONS.find((p) => p.value === value);
+  return profession ? profession.label : "Неизвестная профессия";
+};
+
 export const PROFESSIONS = [
   {
     value: "frontend_developer",
