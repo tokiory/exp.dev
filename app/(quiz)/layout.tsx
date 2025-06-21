@@ -6,7 +6,7 @@ import NextLink from "next/link";
 
 const QuizLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div className="max-w-4xl w-full flex flex-col mx-auto pb-4 pt-6">
+    <div className="max-w-4xl px-3 w-full flex flex-col mx-auto pb-4 pt-6">
       <QuizProvider>
         <div className="mx-auto gap-1 flex items-center">
           <Icon className="text-xl" icon="fluent-emoji:sparkles" />

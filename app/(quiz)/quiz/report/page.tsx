@@ -66,6 +66,18 @@ export default function ReportPage() {
     link.remove();
   };
 
+  const skillItems = Object.entries(skills)
+    .sort(([, a], [, b]) => b - a)
+    .map(([skill, value]) => (
+      <div className="flex flex-col gap-1" key={skill}>
+        <Label className="flex gap-1 items-center">
+          <Icon className="text-base" icon={getSkillIcon(skill)} />
+          {getSkillName(skill)}
+        </Label>
+        <RangeStep readonly key={skill} value={value} />
+      </div>
+    ));
+
   return (
     <div>
       <QuizHeading>Отчёт</QuizHeading>
@@ -93,7 +105,7 @@ export default function ReportPage() {
         </div>
       </div>
 
-      <div className="flex items-center gap-2 mt-4">
+      <div className="flex flex-wrap items-center gap-2 mt-4">
         <Button onClick={handleJsonExport} className="flex gap-1 items-center">
           <Icon className="text-base" icon="tabler:download" />
           Экспортировать
@@ -120,19 +132,13 @@ export default function ReportPage() {
       )}
 
       <QuizSubheading className="mt-4">Навыки</QuizSubheading>
-      <div className="flex flex-col gap-3 mt-2">
-        {Object.entries(skills)
-          .sort(([, a], [, b]) => b - a)
-          .map(([skill, value]) => (
-            <div className="flex flex-col gap-1" key={skill}>
-              <Label className="flex gap-1 items-center">
-                <Icon className="text-base" icon={getSkillIcon(skill)} />
-                {getSkillName(skill)}
-              </Label>
-              <RangeStep readonly key={skill} value={value} />
-            </div>
-          ))}
-      </div>
+      {skillItems.length >= 10 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-2">
+          {skillItems}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-3 mt-2">{skillItems}</div>
+      )}
     </div>
   );
 }
