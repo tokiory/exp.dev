@@ -3,7 +3,7 @@ import { Text } from "@/components/ui";
 
 export const Footer = () => {
   return (
-    <footer className="flex font-semibold justify-center gap-1 items-center px-4 py-2">
+    <footer className="bg-white flex font-semibold justify-center gap-1 items-center px-4 py-2">
       <Text>
         Developed by{" "}
         <a

@@ -2,10 +2,12 @@ import { Footer } from "@/components/footer/footer";
 import { Heading, Text, Button } from "@/components/ui";
 import { Icon } from "@iconify/react";
 import NextLink from "next/link";
+import MainSparkleBackground from "@/components/main/main-sparkles";
 
 export default function Home() {
   return (
     <>
+      <MainSparkleBackground />
       <div className="flex flex-col grow justify-center items-center">
         <Icon className="text-6xl" icon="fluent-emoji:sparkles" />
         <Heading className="mt-2">exp.dev</Heading>
