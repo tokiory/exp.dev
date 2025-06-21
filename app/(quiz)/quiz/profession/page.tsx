@@ -13,11 +13,10 @@ import {
   FormMessage,
 } from "@/components/ui";
 import { Quiz } from "@/components/quiz/quiz";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { GRADES, SOFTWARE_GRADES } from "@/data/grade";
 import { PROFESSIONS } from "@/data/profession";
 import { useQuizContext } from "@/contexts/quiz";
-import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { QUIZ_PAGES } from "@/data/quiz";
 import { useForm } from "react-hook-form";
@@ -27,6 +26,10 @@ import z from "zod";
 export default function QuizProfession() {
   const router = useRouter();
   const { setStep, step, work, setWork } = useQuizContext();
+
+  const handlePrevious = () => {
+    router.push(QUIZ_PAGES[step - 1]);
+  };
 
   useEffect(() => {
     setStep(() => 1);
@@ -60,7 +63,7 @@ export default function QuizProfession() {
     resolver: zodResolver(formSchema),
     values: {
       ...work,
-      growthMessage: work.growthMessage ?? ""
+      growthMessage: work.growthMessage ?? "",
     },
   });
 
@@ -143,9 +146,9 @@ export default function QuizProfession() {
           />
         </div>
         <div className="flex justify-between mt-4 items-center">
-          <NextLink href="/quiz/person">
-            <Button variant="secondary">Назад</Button>
-          </NextLink>
+          <Button onClick={handlePrevious} variant="secondary">
+            Назад
+          </Button>
           <Button type="submit">Продолжить</Button>
         </div>
       </Quiz>

@@ -10,7 +10,6 @@ import {
 } from "@/components/ui";
 import { Heading } from "@/components/quiz/heading";
 import { Quiz } from "@/components/quiz/quiz";
-import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useQuizContext } from "@/contexts/quiz";
@@ -59,6 +58,10 @@ export default function QuizPersonPage() {
     router.push(QUIZ_PAGES[step + 1]);
   };
 
+  const handleQuit = () => {
+    router.push("/");
+  };
+
   return (
     <Form {...form}>
       <Quiz onSubmit={form.handleSubmit(handleSubmit)}>
@@ -73,11 +76,11 @@ export default function QuizPersonPage() {
           <div className="grid grid-cols-3 gap-2 mt-2">
             <FormField
               control={form.control}
-              name="name"
+              name="surname"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Имя" {...field} />
+                    <Input placeholder="Фамилия" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -85,11 +88,11 @@ export default function QuizPersonPage() {
             />
             <FormField
               control={form.control}
-              name="surname"
+              name="name"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Фамилия" {...field} />
+                    <Input placeholder="Имя" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -137,9 +140,9 @@ export default function QuizPersonPage() {
           </div>
         </div>
         <div className="flex justify-between mt-4 items-center">
-          <NextLink href="/">
-            <Button variant="secondary">Назад</Button>
-          </NextLink>
+          <Button onClick={handleQuit} variant="secondary">
+            Назад
+          </Button>
           <Button type="submit">Продолжить</Button>
         </div>
       </Quiz>

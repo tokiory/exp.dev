@@ -1,25 +1,36 @@
 "use client";
 import { Heading } from "@/components/quiz/heading";
 import { QuizReportField } from "@/components/quiz/quiz-report-field";
+import { QuizSubheading } from "@/components/quiz/quiz-subheading";
 import { useQuizContext } from "@/contexts/quiz";
 import { useEffect } from "react";
 
 export default function ReportPage() {
-  const { personal, setStep } = useQuizContext();
+  const { personal, skills, setStep } = useQuizContext();
 
   useEffect(() => {
     setStep(3);
   }, [setStep]);
 
+  console.log(skills);
   return (
     <div>
       <Heading>Отчёт</Heading>
-      <div className="flex flex-col gap-4 mt-4">
-        <QuizReportField icon="tabler:user" value={`${personal.name} ${personal.surname} ${personal.patronymic}`} />
+      <div className="flex flex-col gap-2 mt-4">
+        <QuizReportField
+          icon="tabler:user"
+          value={`${personal.surname} ${personal.name} ${personal.patronymic}`}
+        />
         <div className="flex gap-4">
           <QuizReportField icon="tabler:mail" value={personal.email} />
-          <QuizReportField icon="tabler:brand-telegram" value={personal.telegram} />
+          <QuizReportField
+            icon="tabler:brand-telegram"
+            value={personal.telegram}
+          />
         </div>
+
+        <QuizSubheading className="mt-4">Навыки</QuizSubheading>
+        {JSON.stringify(skills)}
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ import { RangeStep } from "@/components/ui/range-step";
 import { useEffect, useState } from "react";
 import { FRONTEND_SKILL_CATEGORIES } from "@/data/skills/frontend";
 import { Icon } from "@iconify/react";
-import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { useQuizContext } from "@/contexts/quiz";
 import { QUIZ_PAGES } from "@/data/quiz";
@@ -30,7 +29,12 @@ export default function QuizSkills() {
   const [skills, setSkills] = useState<Record<string, number>>({});
 
   const handleChangeSkill = (skill: string, value: number) => {
+    console.log(skills, skill, value);
     setSkills((prevSkills) => ({ ...prevSkills, [skill]: value }));
+  };
+
+  const handleBack = () => {
+    router.push(QUIZ_PAGES[step - 1]);
   };
 
   return (
@@ -65,8 +69,8 @@ export default function QuizSkills() {
                   </div>
                   <RangeStep
                     className="mt-2"
-                    value={skills[skill.name] || 0}
-                    onChange={(value) => handleChangeSkill(skill.name, value)}
+                    value={skills[skill.value] || 0}
+                    onChange={(value) => handleChangeSkill(skill.value, value)}
                   />
                 </div>
               ))}
@@ -75,14 +79,10 @@ export default function QuizSkills() {
         ))}
       </div>
       <div className="flex mt-4 justify-between items-center">
-        <NextLink href="/quiz/profession">
-          <Button variant="secondary">
-            Назад
-          </Button>
-        </NextLink>
-        <Button type="submit">
-          Продолжить
+        <Button onClick={handleBack} variant="secondary">
+          Назад
         </Button>
+        <Button type="submit">Продолжить</Button>
       </div>
     </Quiz>
   );

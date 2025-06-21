@@ -7,8 +7,8 @@ interface Props {
 }
 export const QuizReportField: FC<Props> = ({ value, icon }) => {
   return (
-    <div className="flex w-fit gap-2 items-center border-b px-2 py-1">
-      <Icon icon={icon} />
+    <div className="flex w-fit gap-1.5 items-center">
+      <Icon className="text-lg" icon={icon} />
       <span>{value}</span>
     </div>
   );
