@@ -57,7 +57,8 @@ export default function QuizProfession() {
   const formSchema = z.object({
     grade: z.string().nonempty("Необходимо выбрать уровень"),
     position: z.string().nonempty("Необходимо указать должность"),
-    growthMessage: z.string().max(10000),
+    growthMessage: z.string().max(10000, "Слишком длинное сообщение"),
+    specificTasksMessage: z.string().max(10000, "Слишком длинное сообщение"),
   });
 
   const form = useForm({
@@ -65,6 +66,7 @@ export default function QuizProfession() {
     values: {
       ...work,
       growthMessage: work.growthMessage ?? "",
+      specificTasksMessage: work.specificTasksMessage ?? "",
     },
   });
 
@@ -148,6 +150,31 @@ export default function QuizProfession() {
             )}
           />
         </div>
+
+        <Label className="mt-4 flex items-center">
+          <span>Специфические задачи</span>
+          <Badge variant="secondary">Опционально</Badge>
+        </Label>
+        <Text className="mt-1">
+          Если у вас есть желание работать в каком-то определенном направлении
+          или поработать с определенноыми технологиями, то отпишите об этом в
+          данном поле.
+        </Text>
+        <FormField
+          control={form.control}
+          name="specificTasksMessage"
+          render={({ field }) => (
+            <FormItem>
+              <Textarea
+                {...field}
+                className="mt-2"
+                placeholder="Мне интересны проекты, где используется 3D-графика и происходит работа с графическими библиотеками..."
+              ></Textarea>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <div className="flex justify-between mt-4 items-center">
           <Button type="button" onClick={handlePrevious} variant="secondary">
             Назад

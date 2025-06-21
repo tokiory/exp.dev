@@ -10,13 +10,18 @@ interface Props {
   className?: string;
 }
 
+const cacheKeyIndexPairs = ["personal", "work", "skills", "report"] as const;
+
 export const QuizStep: FC<Props> = ({ total, className }) => {
   const router = useRouter();
-  const { step } = useQuizContext();
+  const { step, cachedFields } = useQuizContext();
 
   const handleNavigate = (index: number) => {
-    if (index > step) return;
-    router.push(QUIZ_PAGES[index]);
+    if (
+      cachedFields[cacheKeyIndexPairs[index] as keyof typeof cachedFields] ||
+      Object.values(cachedFields).every(Boolean)
+    )
+      router.push(QUIZ_PAGES[index]);
   };
 
   return (

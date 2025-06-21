@@ -1,6 +1,7 @@
 "use client";
 import { Personal } from "@/types/personal.types";
 import { Work } from "@/types/work.types";
+import { Report } from "@/types/report.types";
 import {
   createContext,
   Dispatch,
@@ -20,6 +21,7 @@ interface QuizContextData {
   skills: Record<string, number>;
   setSkills: (state: Record<string, number>) => void;
   step: number;
+  getReport: () => Report;
   setStep: Dispatch<SetStateAction<number>>;
   cachedFields: Record<"work" | "personal" | "skills", boolean>;
 }
@@ -40,6 +42,7 @@ export const QuizProvider: FC<PropsWithChildren> = ({ children }) => {
     position: "",
     grade: "",
     growthMessage: "",
+    specificTasksMessage: "",
   });
 
   const [cachedFields, setCachedFields] = useState({
@@ -106,6 +109,16 @@ export const QuizProvider: FC<PropsWithChildren> = ({ children }) => {
     }
   }, []);
 
+  const getReport = () => {
+    const report: Report = {
+      date: new Date(),
+      personal,
+      work,
+      skills,
+    };
+    return report;
+  };
+
   return (
     <QuizContext.Provider
       value={{
@@ -118,6 +131,7 @@ export const QuizProvider: FC<PropsWithChildren> = ({ children }) => {
         setWork: saveWork,
         setSkills: saveSkills,
         setPersonal: savePersonal,
+        getReport,
       }}
     >
       {children}

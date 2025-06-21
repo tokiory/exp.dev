@@ -9,14 +9,14 @@ import { getGradeLabel } from "@/data/grade";
 import { getProfessionLabel } from "@/data/profession";
 import { getSkillIcon } from "@/data/skills/icon";
 import { getSkillName } from "@/data/skills/name";
-import { quizCsvExporter } from "@/lib/quiz";
+import { quizCsvAdapter } from "@/lib/quiz";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function ReportPage() {
   const router = useRouter();
-  const { personal, skills, work, setStep } = useQuizContext();
+  const { personal, skills, work, getReport, setStep } = useQuizContext();
 
   useEffect(() => {
     setStep(3);
@@ -27,12 +27,7 @@ export default function ReportPage() {
   };
 
   const handleCsvExport = () => {
-    const csvContent = quizCsvExporter({
-      date: new Date(),
-      skills,
-      work,
-      personal,
-    });
+    const csvContent = quizCsvAdapter(getReport());
     const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
@@ -44,16 +39,7 @@ export default function ReportPage() {
   };
 
   const handleJsonExport = () => {
-    const jsonContent = JSON.stringify(
-      {
-        date: new Date(),
-        skills,
-        work,
-        personal,
-      },
-      null,
-      2,
-    );
+    const jsonContent = JSON.stringify(getReport(), null, 2);
     const blob = new Blob([jsonContent], {
       type: "application/json;charset=utf-8;",
     });
@@ -127,7 +113,18 @@ export default function ReportPage() {
       {work.growthMessage && (
         <>
           <QuizSubheading className="mt-4">Точки роста</QuizSubheading>
-          <Text>{work.growthMessage}</Text>
+          <Text className="whitespace-pre-line">
+            {work.growthMessage.trim()}
+          </Text>
+        </>
+      )}
+
+      {work.specificTasksMessage && (
+        <>
+          <QuizSubheading className="mt-4">Желаемые задачи</QuizSubheading>
+          <Text className="whitespace-pre-line">
+            {work.specificTasksMessage.trim()}
+          </Text>
         </>
       )}
 
