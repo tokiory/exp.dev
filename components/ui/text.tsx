@@ -7,7 +7,7 @@ interface Props extends VariantProps<typeof textVariants> {
   className?: string;
 }
 
-const textVariants = cva("text-sm", {
+const textVariants = cva("text-base md:text-sm", {
   variants: {
     theme: {
       default: "text-stone-900",
