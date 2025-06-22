@@ -71,8 +71,7 @@ export default function QuizPersonPage() {
         <QuizHeading>Личные данные</QuizHeading>
         <Text className="mt-2">
           Пожалуйста, введите следующие данные для того чтобы правильно
-          сформировать таблицу компетенций. Данные, которые вы введете не будут
-          сохранены и/или переданы куда-либо.
+          сформировать таблицу компетенций.
         </Text>
         {cachedFields.work && <QuizCacheBanner className="mt-2" />}
         <div className="flex flex-col mt-4">
@@ -117,7 +116,9 @@ export default function QuizPersonPage() {
                 <FormItem>
                   <FormControl>
                     <Input
-                      data-testid={TEST_SELECTORS.quizPage.person.patronymicInput}
+                      data-testid={
+                        TEST_SELECTORS.quizPage.person.patronymicInput
+                      }
                       placeholder="Отчество"
                       {...field}
                     />
@@ -166,7 +167,10 @@ export default function QuizPersonPage() {
         <div className="flex justify-between mt-4 items-center">
           <Button
             data-testid={TEST_SELECTORS.quizPage.person.backButton}
-            type="button" onClick={handleQuit} variant="secondary">
+            type="button"
+            onClick={handleQuit}
+            variant="secondary"
+          >
             Назад
           </Button>
           <Button

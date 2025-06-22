@@ -62,8 +62,8 @@ const SparkleCanvas: React.FC = () => {
           sparkles.push({
             x,
             y,
-            vx: (Math.random() - 0.5) * 0.1,
-            vy: (Math.random() - 0.5) * 0.1,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
             size: Math.random() * 16 + 12,
             opacity: 0,
             fadeIn: true,
