@@ -23,6 +23,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
 import { QuizCacheBanner } from "@/components/quiz/quiz-cache-banner";
+import { TEST_SELECTORS } from "@/tests/const/selectors";
 
 export default function QuizProfession() {
   const router = useRouter();
@@ -176,10 +177,20 @@ export default function QuizProfession() {
         />
 
         <div className="flex justify-between mt-4 items-center">
-          <Button type="button" onClick={handlePrevious} variant="secondary">
+          <Button
+            data-testid={TEST_SELECTORS.quizPage.profession.backButton}
+            type="button"
+            onClick={handlePrevious}
+            variant="secondary"
+          >
             Назад
           </Button>
-          <Button type="submit">Продолжить</Button>
+          <Button
+            data-testid={TEST_SELECTORS.quizPage.profession.submitButton}
+            type="submit"
+          >
+            Продолжить
+          </Button>
         </div>
       </Quiz>
     </Form>

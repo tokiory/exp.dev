@@ -19,6 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
 import { QUIZ_PAGES } from "@/data/quiz";
 import { QuizCacheBanner } from "@/components/quiz/quiz-cache-banner";
+import { TEST_SELECTORS } from "@/tests/const/selectors";
 
 export default function QuizPersonPage() {
   const { setStep, cachedFields, step, personal, setPersonal } =
@@ -83,7 +84,11 @@ export default function QuizPersonPage() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Фамилия" {...field} />
+                    <Input
+                      data-testid={TEST_SELECTORS.quizPage.person.surnameInput}
+                      placeholder="Фамилия"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -95,7 +100,11 @@ export default function QuizPersonPage() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Имя" {...field} />
+                    <Input
+                      data-testid={TEST_SELECTORS.quizPage.person.nameInput}
+                      placeholder="Имя"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -107,7 +116,11 @@ export default function QuizPersonPage() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Отчество" {...field} />
+                    <Input
+                      data-testid={TEST_SELECTORS.quizPage.person.patronymicInput}
+                      placeholder="Отчество"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -122,7 +135,11 @@ export default function QuizPersonPage() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Почта" {...field} />
+                    <Input
+                      data-testid={TEST_SELECTORS.quizPage.person.emailInput}
+                      placeholder="Почта"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -134,7 +151,11 @@ export default function QuizPersonPage() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Телеграм" {...field} />
+                    <Input
+                      data-testid={TEST_SELECTORS.quizPage.person.telegramInput}
+                      placeholder="Телеграм"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -143,10 +164,17 @@ export default function QuizPersonPage() {
           </div>
         </div>
         <div className="flex justify-between mt-4 items-center">
-          <Button type="button" onClick={handleQuit} variant="secondary">
+          <Button
+            data-testid={TEST_SELECTORS.quizPage.person.backButton}
+            type="button" onClick={handleQuit} variant="secondary">
             Назад
           </Button>
-          <Button type="submit">Продолжить</Button>
+          <Button
+            data-testid={TEST_SELECTORS.quizPage.person.submitButton}
+            type="submit"
+          >
+            Продолжить
+          </Button>
         </div>
       </Quiz>
     </Form>
