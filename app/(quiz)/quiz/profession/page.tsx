@@ -89,7 +89,7 @@ export default function QuizProfession() {
 
         <Label className="mt-4">Профессия и грейд</Label>
         <div className="flex flex-col mt-2">
-          <div className="grid gap-4 grid-cols-3">
+          <div className="grid gap-2 md:gap-4 md:grid-cols-2">
             <FormField
               control={form.control}
               name="position"

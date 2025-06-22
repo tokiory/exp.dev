@@ -1,5 +1,55 @@
 export function getSkillName(value: string): string {
   switch (value) {
+    case "gatsby":
+      return "Gatsby";
+    case "electron":
+      return "Electron";
+    case "reactnative":
+      return "React Native";
+    case "astro":
+      return "Astro";
+    case "cordova":
+      return "Cordova";
+    case "ionic":
+      return "Ionic";
+    case "stencil":
+      return "Stencil";
+    case "knockout":
+      return "Knockout";
+    case "polymer":
+      return "Polymer";
+    case "zustand":
+      return "Zustand";
+    case "recoil":
+      return "Recoil";
+    case "remix":
+      return "Remix";
+    case "eleventy":
+      return "11ty";
+    case "hugo":
+      return "Hugo";
+    case "vuepress":
+      return "VuePress";
+    case "jekyll":
+      return "Jekyll";
+    case "nanostores":
+      return "Nano Stores";
+    case "docz":
+      return "Docz";
+    case "testcafe":
+      return "TestCafe";
+    case "webdriverio":
+      return "WebdriverIO";
+    case "selenium":
+      return "Selenium";
+    case "chai":
+      return "Chai";
+    case "testing-library":
+      return "Testing Library";
+    case "ava":
+      return "Ava";
+    case "vitest":
+      return "Vitest";
     case "html":
       return "HTML5";
     case "css":

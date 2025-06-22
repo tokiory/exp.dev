@@ -66,6 +66,7 @@ export const RangeStep: React.FC<RangeStepProps> = ({
       <RangeInput
         min={min}
         max={max}
+        readonly={readonly}
         step={step}
         value={value}
         onChange={onChange}
@@ -119,6 +120,7 @@ type RangeInputProps = {
   step: number;
   value: number;
   onChange?: (val: number) => void;
+  readonly?: boolean;
 };
 
 const RangeInput: React.FC<RangeInputProps> = ({
@@ -128,6 +130,7 @@ const RangeInput: React.FC<RangeInputProps> = ({
   step,
   value,
   onChange,
+  readonly,
 }) => (
   <input
     id={id}
@@ -137,7 +140,10 @@ const RangeInput: React.FC<RangeInputProps> = ({
     step={step}
     value={value}
     onChange={(e) => onChange?.(Number(e.target.value))}
-    className="z-30 absolute top-0 left-0 w-full h-fit opacity-0 cursor-pointer"
+    className={clsx(
+      "z-30 absolute top-0 left-0 w-full h-fit opacity-0",
+      !readonly && "cursor-pointer",
+    )}
     aria-label="Select level"
   />
 );

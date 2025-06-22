@@ -151,6 +151,97 @@ const FRAMEWORK_LIBRARIES_SECTION = {
       value: "riotjs",
     },
     { name: getSkillName("dojo"), icon: getSkillIcon("dojo"), value: "dojo" },
+    // Added libraries and frameworks
+    {
+      name: getSkillName("remix"),
+      icon: getSkillIcon("remix"),
+      value: "remix",
+    },
+    {
+      name: getSkillName("gatsby"),
+      icon: getSkillIcon("gatsby"),
+      value: "gatsby",
+    },
+    {
+      name: getSkillName("astro"),
+      icon: getSkillIcon("astro"),
+      value: "astro",
+    },
+    {
+      name: getSkillName("electron"),
+      icon: getSkillIcon("electron"),
+      value: "electron",
+    },
+    {
+      name: getSkillName("reactnative"),
+      icon: getSkillIcon("reactnative"),
+      value: "reactnative",
+    },
+    {
+      name: getSkillName("cordova"),
+      icon: getSkillIcon("cordova"),
+      value: "cordova",
+    },
+    {
+      name: getSkillName("ionic"),
+      icon: getSkillIcon("ionic"),
+      value: "ionic",
+    },
+    {
+      name: getSkillName("stencil"),
+      icon: getSkillIcon("stencil"),
+      value: "stencil",
+    },
+    {
+      name: getSkillName("knockout"),
+      icon: getSkillIcon("knockout"),
+      value: "knockout",
+    },
+    {
+      name: getSkillName("polymer"),
+      icon: getSkillIcon("polymer"),
+      value: "polymer",
+    },
+    {
+      name: getSkillName("recoil"),
+      icon: getSkillIcon("recoil"),
+      value: "recoil",
+    },
+    {
+      name: getSkillName("nanostores"),
+      icon: getSkillIcon("nanostores"),
+      value: "nanostores",
+    },
+    {
+      name: getSkillName("zustand"),
+      icon: getSkillIcon("zustand"),
+      value: "zustand",
+    },
+    {
+      name: getSkillName("vuepress"),
+      icon: getSkillIcon("vuepress"),
+      value: "vuepress",
+    },
+    {
+      name: getSkillName("eleventy"),
+      icon: getSkillIcon("eleventy"),
+      value: "eleventy",
+    },
+    {
+      name: getSkillName("hugo"),
+      icon: getSkillIcon("hugo"),
+      value: "hugo",
+    },
+    {
+      name: getSkillName("jekyll"),
+      icon: getSkillIcon("jekyll"),
+      value: "jekyll",
+    },
+    {
+      name: getSkillName("docz"),
+      icon: getSkillIcon("docz"),
+      value: "docz",
+    },
   ],
 };
 
@@ -288,6 +379,41 @@ const TESTING_SECTION = {
       name: getSkillName("playwright"),
       icon: getSkillIcon("playwright"),
       value: "playwright",
+    },
+    {
+      name: getSkillName("vitest"),
+      icon: getSkillIcon("vitest"),
+      value: "vitest",
+    },
+    {
+      name: getSkillName("ava"),
+      icon: getSkillIcon("ava"),
+      value: "ava",
+    },
+    {
+      name: getSkillName("testing-library"),
+      icon: getSkillIcon("testing-library"),
+      value: "testing-library",
+    },
+    {
+      name: getSkillName("selenium"),
+      icon: getSkillIcon("selenium"),
+      value: "selenium",
+    },
+    {
+      name: getSkillName("chai"),
+      icon: getSkillIcon("chai"),
+      value: "chai",
+    },
+    {
+      name: getSkillName("testcafe"),
+      icon: getSkillIcon("testcafe"),
+      value: "testcafe",
+    },
+    {
+      name: getSkillName("webdriverio"),
+      icon: getSkillIcon("webdriverio"),
+      value: "webdriverio",
     },
   ],
 };

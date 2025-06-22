@@ -1,5 +1,55 @@
 export const getSkillIcon = (skillValue: string) => {
   switch (skillValue) {
+    case "testcafe":
+      return "vscode-icons:file-type-testcafe";
+    case "nanostores":
+      return "simple-icons:nanostores";
+    case "gatsby":
+      return "devicon:gatsby";
+    case "electron":
+      return "devicon:electron";
+    case "reactnative":
+      return "devicon:reactnative";
+    case "astro":
+      return "devicon:astro";
+    case "cordova":
+      return "logos:cordova";
+    case "ionic":
+      return "devicon:ionic";
+    case "stencil":
+      return "vscode-icons:file-type-stencil";
+    case "knockout":
+      return "file-icons:knockout";
+    case "polymer":
+      return "file-icons:polymer";
+    case "zustand":
+      return "devicon:zustand";
+    case "recoil":
+      return "simple-icons:recoil";
+    case "remix":
+      return "devicon:remix";
+    case "eleventy":
+      return "devicon:eleventy";
+    case "hugo":
+      return "vscode-icons:file-type-hugo";
+    case "vuepress":
+      return "vscode-icons:file-type-vue";
+    case "jekyll":
+      return "vscode-icons:file-type-jekyll";
+    case "docz":
+      return "vscode-icons:file-type-docz";
+    case "webdriverio":
+      return "simple-icons:webdriverio";
+    case "selenium":
+      return "devicon:selenium";
+    case "testing-library":
+      return "simple-icons:testinglibrary";
+    case "chai":
+      return "logos:chai";
+    case "ava":
+      return "simple-icons:avajs";
+    case "vitest":
+      return "vscode-icons:file-type-vitest";
     case "html":
       return "vscode-icons:file-type-html";
     case "css":
