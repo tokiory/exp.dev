@@ -1,4 +1,4 @@
-import { Button, Heading, Text } from '@/components/ui'
+import { Button } from '@/components/ui'
 import { TEST_SELECTORS } from '@/tests/const/selectors'
 import Link from 'next/link'
 
@@ -16,9 +16,9 @@ export default function QuizIntroPage() {
       <div className="mt-1">
         Сам аудит знаний будет проходить в несколько этапов:
       </div>
-      <div className="flex flex-wrap gap-2 mt-2">
+      <div className="flex text-sm flex-wrap gap-2 mt-2">
         {["Сбор общих данных", "Сбор данных о профессии", "Выбор навыков", "Экспортирование данных"].map((text, idx) => (
-          <div key={text} className="bg-orange-100 border border-orange-600 font-semibold flex justify-center rounded-md py-1 px-4 text-stone-900 items-center w-fit"><span className="text-stone-600">{idx + 1}.</span>&nbsp;<span>{text}</span></div>
+          <div key={text} className="bg-orange-100 border border-orange-600 font-semibold flex justify-center rounded-sm py-1 px-4 text-stone-900 items-center w-fit"><span className="text-stone-600">{idx + 1}.</span>&nbsp;<span>{text}</span></div>
         ))}
       </div>
 
