@@ -13,7 +13,7 @@ export default function Home() {
         <Icon className="text-6xl" icon="fluent-emoji:sparkles" />
         <Heading className="mt-2">exp.dev</Heading>
         <Text className="mt-1">Сервис для оценки компетенций сотрудников</Text>
-        <NextLink href="/quiz/person" className="mt-4">
+        <NextLink href="/intro" className="mt-4">
           <Button
             data-testid={TEST_SELECTORS.mainPage.startButton}
             className="mt-4"

@@ -2,6 +2,9 @@ export const TEST_SELECTORS = {
   mainPage: {
     startButton: "start-button",
   },
+  introPage: {
+    startButton: "intro-start-button",
+  },
   quizPage: {
     person: {
       nameInput: "name-input",

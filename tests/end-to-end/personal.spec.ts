@@ -22,6 +22,7 @@ test.describe("Quiz: Person Section", () => {
     await page.goto(baseURL || "http://localhost:3000");
 
     await page.getByTestId(TEST_SELECTORS.mainPage.startButton).click();
+    await page.getByTestId(TEST_SELECTORS.introPage.startButton).click();
   });
 
   [
